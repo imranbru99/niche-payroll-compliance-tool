@@ -1,188 +1,142 @@
-# Niche Payroll Compliance Tool
+﻿# Niche Payroll Compliance Tool
 
 ![PayComply Dashboard](docs/screenshots/dashboard.png)
 
-**Niche payroll compliance tool for overtime rules, wage classifications, filings, and jurisdiction-aware payroll controls that reduce compliance risk.**
-
-[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
-[![Filament](https://img.shields.io/badge/Filament-4-FDAE4B?logo=laravel&logoColor=white)](https://filamentphp.com)
-[![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)](https://www.php.net)
-[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)](./docker-compose.yml)
-[![Author](https://img.shields.io/badge/Author-Imran%20Ahmed-CA8A04)](https://imrandev.bd)
-
-> SEO keywords: niche payroll compliance tool, overtime rules engine, wage classification, jurisdiction payroll controls, labor filings, FLSA compliance, payroll risk alerts, Laravel Filament payroll SaaS, modular payroll modules on off.
+**SEO title:** Niche Payroll Compliance Tool | Overtime, Wage Classes, Filings & Jurisdiction Controls  
+**SEO description:** Niche payroll compliance tool for overtime rules, wage classifications, filings, and jurisdiction-aware payroll controls that reduce compliance risk.  
+**Keywords:** payroll compliance software, overtime rule engine, wage classification management, multi-jurisdiction payroll, FLSA overtime controls, payroll filing calendar, compliance alerts, Laravel Filament payroll, PayComply  
+**Author:** Imran Ahmed <me@imrandev.bd> · [imrandev.bd](https://imrandev.bd)  
+**Accent:** `#CA8A04` · **Industry:** Payroll / HR Compliance  
+**Repository:** [github.com/imranbru99/niche-payroll-compliance-tool](https://github.com/imranbru99/niche-payroll-compliance-tool)
 
 ---
 
-## Why PayComply?
+## Why this product exists
 
-Generic HRIS tools track hours. **PayComply** is a complete payroll compliance operating system: jurisdiction catalogs, wage classes, overtime multipliers, pay-period runs, compliance filings, risk alerts, Unicode PDF packs, and a module switchboard so each employer only runs what auditors require.
+Payroll risk rarely fails in one place — it fails at the seams: overtime multipliers differ by state, wage classes drift from job duties, filings miss due dates, and auditors ask for evidence packs that live in five spreadsheets. Boutique PEOs and multi-state employers need a modular compliance control plane — not another generic HRIS checkbox.
 
-Built for payroll and compliance leaders who need to answer:
+**Niche Payroll Compliance Tool (PayComply)** is a complete Laravel + Filament business solution for overtime rules, wage classifications, filings, jurisdiction catalogs, payroll runs, PDF audit packs, and AI compliance alerts. Every module is toggleable so a single-state studio, multi-state employer, or enterprise shared-services team runs only what they need.
 
-- Which OT threshold and multiplier apply in this jurisdiction?
-- Is this worker correctly classified as exempt or non-exempt?
-- Which filings are overdue — and who owns them?
-- Which modules should stay off until our next audit cycle?
+### Business ROI & time-saver case
 
-Accent theme: **`#CA8A04`** (gold) — production Filament admin + public marketing site.
-
----
-
-## Product Snapshot
-
-| Capability | What you get |
-|---|---|
-| Modular runtime | Enable/disable 12 payroll & platform modules |
-| Multi-role IAM | Super Admin, Admin, Manager, Staff, Client, Demo |
-| Jurisdictions | CA, NY, TX, BD demo catalogs with min wage |
-| Wage classes | Exempt / non-exempt / salaried non-exempt |
-| Overtime engine | Daily/weekly thresholds + multipliers |
-| Pay periods | Gross & OT totals with per-employee runs |
-| Filings | Tax/labor filings with due dates & confirmations |
-| Alerts | OT breach, late filing, misclassification |
-| PDF packs | Unicode-ready compliance packs for auditors |
-| Public pages | Home, Features, Modules, Overtime, Filings, Pricing, Demo |
-| Filament admin | Full CRUD + gold dashboard stats |
-| Packagist stack | All 7 `imrandevbd/*` packages declared |
-
----
-
-## Live Demo Credentials
-
-After `php artisan migrate --seed`:
-
-| Role | Email | Password |
-|---|---|---|
-| **Demo** | `demo@payroll-compliance.test` | `password` |
-| Super Admin | `admin@payroll-compliance.test` | `password` |
-| Admin | `payroll-admin@payroll-compliance.test` | `password` |
-| Manager | `manager@payroll-compliance.test` | `password` |
-| Staff | `staff@payroll-compliance.test` | `password` |
-| Client | `client@payroll-compliance.test` | `password` |
-
-Admin panel: `/admin` · Marketing: `/` `/features` `/modules` `/overtime` `/filings` `/pricing` `/demo`
-
----
-
-## Business ROI & Time-Saver Opportunities
-
-### Executive outcomes
-- **Cut OT exposure** with jurisdiction-priority overtime rules and breach alerts.
-- **Reduce misclassification risk** via wage class catalogs linked to employee roster.
-- **Ship filings on time** with due-date tracking and late-filing alert sync.
-- **Right-size footprint** by disabling AI, catalog scrape, or attendance until needed.
-
-### Department time-savers
-| Department | Opportunity | Typical weekly hours unlocked (seed model) |
-|---|---|---|
-| Payroll | OT calculation & pay period runs | ~28h |
-| Compliance | Filings + alerts | ~38h |
-| HR | Wage classes & employee roster | ~36h |
-| Ops | PDF packs / AI / speed layer | ~34h |
-
-**Compounding effect:** enabled modules estimate **100+ hours/week** of compliance automation capacity in the demo seed.
-
-### Opportunity backlog for implementers
-1. Feed time clocks into OT via `imrandevbd/laravel-attendance-hub` when `attendance_ops` is enabled.
-2. Draft classification narratives through `imrandevbd/laravel-ai-hub` via AI Payroll Assist.
-3. Render multilingual compliance PDFs with `laravel-unicode-pdf`.
-4. Enrich wage-board catalogs with `laravel-ai-catalog` scrapers.
-5. Accelerate admin delivery with `drutogoti` performance helpers.
-6. Extend Filament surfaces using `laravel-admin-panel` patterns.
-7. Keep SEO-safe multilingual slugs with `laravel-universal-slug`.
-
----
-
-## Modules (On / Off)
-
-| Key | Name | Category | Core |
+| Bottleneck | Without PayComply | With PayComply | Typical savings |
 |---|---|---|---|
-| `jurisdictions` | Jurisdictions | compliance | Yes |
-| `wage_classes` | Wage Classifications | payroll | Yes |
-| `overtime_rules` | Overtime Rules | payroll | Yes |
-| `employees` | Employee Roster | workforce | Yes |
-| `pay_periods` | Pay Periods & Runs | payroll | Yes |
-| `filings` | Compliance Filings | compliance | Yes |
-| `alerts` | Compliance Alerts | risk | No |
-| `pdf_packs` | PDF Compliance Packs | reporting | No |
-| `ai_assist` | AI Payroll Assist | ai | No |
-| `catalog_scrape` | Labor Catalog Scraper | data | No |
-| `attendance_ops` | Attendance Bridge | workforce | No |
-| `speed_optimizer` | Drutogoti Speed Layer | platform | No |
+| OT threshold lookup | State PDFs / tribal knowledge | Jurisdiction OT rule matrix | **20–40 min / payroll cycle** |
+| Misclassification review | Ad-hoc manager email | Wage class + alert queue | **1–2 hrs / week / manager** |
+| Filing chase | Calendar reminders in inbox | Due-date filings + late alerts | **1–3 days off late remits** |
+| Audit evidence | Manual PDF stitching | Unicode PDF compliance packs | **2–4 hrs / audit request** |
+| Multi-state onboarding | Re-key wage floors | Jurisdiction catalog + min wage | **45–90 min / new state** |
+| Risk triage | End-of-quarter surprises | AI/open alert dashboard | **Earlier remediation** |
 
-`ModuleManager` caches lookups and syncs `module_settings` for Filament + marketing pages.
+For a payroll team covering ~8 jurisdictions, reclaiming even **30 minutes per jurisdiction per week** plus earlier late-filing capture routinely unlocks **10–20+ hours/month** — before penalty avoidance on OT and withholding misses.
 
 ---
 
-## Domain Model
+## Product screenshot
 
-- **Users** — roles via `UserRole`; Filament access gated by role.
-- **ModuleSetting** — feature flags for the payroll stack.
-- **Jurisdiction** — authority, currency, minimum wage.
-- **WageClassification** — exempt status + pay frequency.
-- **OvertimeRule** — thresholds, multipliers, priority.
-- **PayrollEmployee** — roster linked to jurisdiction & wage class.
-- **PayPeriod** + **PayrollRun** — period totals and per-employee calc.
-- **ComplianceFiling** — tax/labor filing lifecycle.
-- **ComplianceAlert** — OT / filing / classification risk.
-- **PdfCompliancePack** — auditor-ready PDF metadata.
-
-Services: `ModuleManager`, `OvertimeCalculator`, `FilingReminderService`.
+The admin dashboard (gold `#CA8A04` theme) surfaces open compliance alerts, filings in progress, open pay periods, and active jurisdictions — designed for payroll controllers and compliance managers, not generic CRM chrome.
 
 ---
 
-## Filament Admin Resources
+## Core modules (all toggleable)
 
-- Jurisdictions · Wage Classes · Overtime Rules · Employees · Pay Periods · Filings · Alerts · PDF Packs · Modules · Users  
-- Widgets: **PayrollStatsOverview**, **OpenAlertsWidget**
+Every module can be enabled/disabled via `.env`, `config/modules.php`, or the **Modules** Filament resource (`module_settings` table). Disabled modules hide from navigation and refuse resource access.
 
-Brand color: `#CA8A04`.
+| Module key | Label | What it does |
+|---|---|---|
+| `jurisdictions` | Jurisdictions | Country/state catalogs with authorities and minimum wage |
+| `wage_classes` | Wage Classifications | Exempt/non-exempt classes, rates, pay frequencies |
+| `overtime_rules` | Overtime Rules | Daily/weekly OT multipliers and jurisdiction overrides |
+| `employees` | Employee Roster | Workers linked to wage class, jurisdiction, manager |
+| `pay_periods` | Pay Periods & Runs | Pay calendars, payroll runs, OT/gross snapshots |
+| `filings` | Compliance Filings | Tax/labor filings with due dates and confirmation codes |
+| `alerts` | Compliance Alerts | OT breach, misclass, and late-filing risk alerts |
+| `pdf_packs` | PDF Compliance Packs | Unicode-ready auditor / regulator evidence packs |
+| `ai_assist` | AI Payroll Assist | AI hub wiring for classification and filing narratives |
+| `catalog_scrape` | Labor Catalog Scraper | Optional AI catalog assist for wage-board libraries |
+| `attendance_ops` | Attendance Bridge | Optional time-clock bridge into OT calculations |
+| `speed_optimizer` | Drutogoti Speed Layer | Performance helpers for admin dashboards |
 
 ---
 
-## Public Marketing Pages
+## Multi-role users
+
+| Role | Access |
+|---|---|
+| Super Admin | Full control, modules, users, filings |
+| Admin | Payroll office administration |
+| Manager | Team oversight, alert triage, filing ownership |
+| Staff | Day-to-day payroll runs & classifications |
+| Client / Customer | Portal-only period/filing visibility |
+| Demo | Seeded showcase user for evaluations |
+
+### Demo credentials (after `db:seed`)
+
+| User | Email | Password |
+|---|---|---|
+| Demo | `demo@paycomply.test` | `password` |
+| Super Admin | `superadmin@paycomply.test` | `password` |
+| Admin | `admin@paycomply.test` | `password` |
+| Manager | `manager@paycomply.test` | `password` |
+| Staff | `staff@paycomply.test` | `password` |
+| Client | `client@paycomply.test` | `password` |
+
+---
+
+## Public marketing pages
 
 | Route | Purpose |
 |---|---|
-| `/` | Hero + KPI + value props |
-| `/features` | Feature cards from module catalog |
-| `/modules` | Module on/off matrix |
-| `/overtime` | OT engine showcase |
-| `/filings` | Filings desk narrative |
-| `/pricing` | Starter / Compliance+ / Platform |
+| `/` | Hero + live module grid |
+| `/features` | Feature deep-dive for payroll risk teams |
+| `/modules` | Toggleable module catalog with ON/OFF status |
+| `/pricing` | Studio / Growth / Enterprise framing |
+| `/security` | Role gates & compliance accountability |
 | `/demo` | Demo credentials CTA |
+| `/admin` | Filament admin panel (PayComply) |
+| `/portal` | Authenticated client compliance portal |
 
 ---
 
-## Tech Stack & Packages
+## Technical stack
 
-- PHP 8.3+ · Laravel 13 · Filament 4 · Livewire · SQLite/MySQL  
-- Packagist (`dev-main` / aliased for Laravel 13 compatibility where upstream constraints lag):
-  - `imrandevbd/drutogoti` — **path shim** `packages/drutogoti` (L13 illuminate bridge)
-  - `imrandevbd/laravel-admin-panel` — **path shim** `packages/laravel-admin-panel`
-  - `imrandevbd/laravel-attendance-hub` — **path shim** `packages/laravel-attendance-hub`
-  - `imrandevbd/laravel-ai-catalog` — Packagist `dev-main`
-  - `imrandevbd/laravel-ai-hub` — Packagist `^1.6`
-  - `imrandevbd/laravel-unicode-pdf` — Packagist `dev-main`
-  - `imrandevbd/laravel-universal-slug` — Packagist `dev-main`
+- **PHP 8.4 / Laravel 13** application core  
+- **Filament 5** admin panel (gold primary `#CA8A04`)  
+- **Livewire** interactive admin UI  
+- Modular services: `ModuleManager`, `OvertimeCalculator`, `FilingReminderService`  
+- Policies for compliance filings  
+- Migrations, models, seeders, feature tests  
+- Dockerized (`Dockerfile` + `docker-compose.yml`) with MySQL  
 
-> Note: `drutogoti`, `laravel-admin-panel`, and `laravel-attendance-hub` upstream pins block Laravel 13; this repo ships local path repositories that require `illuminate/support ^11|^12|^13` so `composer install` succeeds while still declaring all seven packages.
+### Packagist packages (`imrandevbd/*`)
+
+| Package | Role in this product |
+|---|---|
+| `imrandevbd/drutogoti` | Performance / speed helpers |
+| `imrandevbd/laravel-admin-panel` | Admin panel extensions |
+| `imrandevbd/laravel-ai-catalog` | Catalog / enrichment patterns for wage boards |
+| `imrandevbd/laravel-ai-hub` | Multi-provider AI for compliance alerts |
+| `imrandevbd/laravel-attendance-hub` | Time-clock / attendance machine integration |
+| `imrandevbd/laravel-unicode-pdf` | Multilingual compliance PDF packs |
+| `imrandevbd/laravel-universal-slug` | Unicode-safe slugs for OT rules & PDF packs |
+
+> **Note:** On Laravel 13, Packagist builds of `drutogoti`, `laravel-admin-panel`, and `laravel-attendance-hub` currently constrain `illuminate/*` to ^11|^12. This repo declares all seven packages at `dev-main` and ships L13 path compatibility bridges under `packages/` so the application installs cleanly while upstream catches up. `laravel-ai-hub`, `laravel-unicode-pdf`, and `laravel-universal-slug` install from Packagist. `laravel-ai-catalog` uses a local bridge because Packagist `dev-main` requires `laravel-ai-hub:^1.6` which conflicts with root `dev-main`.
 
 ---
 
-## Quick Start
+## Quick start (local)
 
 ```bash
 composer install
-copy .env.example .env   # Windows
+cp .env.example .env
 php artisan key:generate
-touch database/database.sqlite
+touch database/database.sqlite   # or configure MySQL
 php artisan migrate --seed
 php artisan serve
 ```
 
-Visit `http://127.0.0.1:8000` and `http://127.0.0.1:8000/admin`.
+- Marketing site: [http://127.0.0.1:8000](http://127.0.0.1:8000)  
+- Admin: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)  
 
 ### Docker
 
@@ -190,31 +144,42 @@ Visit `http://127.0.0.1:8000` and `http://127.0.0.1:8000/admin`.
 docker compose up --build
 ```
 
-App: `http://localhost:8080` · MySQL published on `3310` · Redis on `6382`.
+App: [http://localhost:8080](http://localhost:8080) · MySQL published on host `3307`.
 
 ---
 
-## Testing
+## Architecture highlights
 
-```bash
-php artisan test
+```
+app/
+  Enums/UserRole.php
+  Filament/Resources/{Jurisdictions,WageClassifications,OvertimeRules,PayrollEmployees,PayPeriods,PayrollRuns,ComplianceFilings,ComplianceAlerts,PdfCompliancePacks,ModuleSettings,Users}
+  Filament/Widgets/{PayrollStatsOverview,ComplianceAlertsWidget}
+  Models/{Jurisdiction,WageClassification,OvertimeRule,PayrollEmployee,PayPeriod,PayrollRun,ComplianceFiling,ComplianceAlert,PdfCompliancePack,ModuleSetting}
+  Policies/ComplianceFilingPolicy.php
+  Services/{ModuleManager,OvertimeCalculator,FilingReminderService}
+  Http/Controllers/{MarketingController,PortalController}
+config/modules.php
+config/payroll.php
 ```
 
 ---
 
-## Architecture Principles
+## Opportunities & roadmap ideas
 
-1. **Modules first** — payroll capabilities are toggleable data, not hard-coded dead ends.
-2. **Roles with intent** — Demo can explore; Clients stay out of admin.
-3. **Jurisdiction-aware** — OT, wages, and filings always carry locale context.
-4. **Measure risk early** — alerts surface OT and filing problems before payroll closes.
-5. **Production posture** — Docker, `.env.example`, seeders, services, Filament resources, public SEO pages.
+- Certified payroll / prevailing wage packs  
+- Collective bargaining agreement OT overlays  
+- Multi-EIN / multi-brand consolidation  
+- Bank / payroll provider export connectors  
+- Worker self-service pay stub evidence locker  
+- Predictive penalty exposure scoring  
 
 ---
 
-## Author
+## License & authorship
 
-**Imran Ahmed** · [imrandev.bd](https://imrandev.bd) · [me@imrandev.bd](mailto:me@imrandev.bd) · GitHub [@imranbru99](https://github.com/imranbru99)
+MIT-licensed portfolio application.  
+**Author / committer:** Imran Ahmed <me@imrandev.bd> — [https://imrandev.bd](https://imrandev.bd)
 
 ---
 

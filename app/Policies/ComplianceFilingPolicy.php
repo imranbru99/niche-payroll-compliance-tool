@@ -10,16 +10,12 @@ class ComplianceFilingPolicy
 {
     public function viewAny(User $user): bool
     {
-        return $user->role !== UserRole::Client;
+        return $user->role?->canAccessAdmin() ?? false;
     }
 
     public function view(User $user, ComplianceFiling $filing): bool
     {
-        if ($user->role === UserRole::Client) {
-            return $filing->owner_id === $user->id;
-        }
-
-        return true;
+        return $this->viewAny($user);
     }
 
     public function create(User $user): bool

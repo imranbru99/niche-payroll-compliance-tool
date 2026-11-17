@@ -1,31 +1,13 @@
 @extends('layouts.marketing')
 
-@section('title', 'Pricing')
-@section('meta_description', 'PayComply pricing orientation for teams deploying modular payroll compliance with Filament admin and demo access.')
+@section('title', 'Pricing — PayComply')
+@section('meta_description', 'PayComply pricing for boutique payroll firms, multi-state employers, and enterprise compliance teams.')
 
 @section('content')
-<section class="hero">
-    <div class="eyebrow">Commercial packaging</div>
-    <h1>Start modular. Scale when mandates expand.</h1>
-    <p>Self-host with Docker. Enable only the modules your auditors require. Extend with Packagist packages for AI, PDF, and attendance.</p>
-</section>
-<section class="section">
-    <div class="grid">
-        <div class="card">
-            <h3>Starter</h3>
-            <p class="kpi">Core</p>
-            <p>Jurisdictions, wage classes, OT rules, employees, pay periods, filings.</p>
-        </div>
-        <div class="card">
-            <h3>Compliance+</h3>
-            <p class="kpi">Risk</p>
-            <p>Adds alerts, PDF packs, and speed optimizer for audit cycles.</p>
-        </div>
-        <div class="card">
-            <h3>Platform</h3>
-            <p class="kpi">Full</p>
-            <p>AI assist, labor catalog scrape, attendance bridge for OT feeds.</p>
-        </div>
-    </div>
+<h1 class="section-title">Pricing framed for payroll ops</h1>
+<section class="grid">
+    <article class="card"><span class="badge">Studio</span><h3>Boutique payroll</h3><p>Core OT + wage class + filings for a single primary jurisdiction. Ideal for PEOs starting compliance productization.</p></article>
+    <article class="card"><span class="badge">Growth</span><h3>Multi-state employer</h3><p>Full jurisdiction matrix, alerts, PDF packs, and AI assist for HR/payroll shared services.</p></article>
+    <article class="card"><span class="badge">Enterprise</span><h3>Complex footprints</h3><p>Attendance bridge, catalog scrape, custom audit packs, and role-gated admin across brands.</p></article>
 </section>
 @endsection

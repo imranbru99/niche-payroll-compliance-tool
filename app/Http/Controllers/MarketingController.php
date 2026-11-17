@@ -7,14 +7,13 @@ use Illuminate\View\View;
 
 class MarketingController extends Controller
 {
-    private string $accent = '#CA8A04';
-
     public function home(ModuleManager $modules): View
     {
         return view('marketing.home', [
             'modules' => $modules->all(),
+            'accent' => config('payroll.accent'),
+            'product' => config('payroll.product_name'),
             'hoursSaved' => $modules->weeklyHoursSaved(),
-            'accent' => $this->accent,
         ]);
     }
 
@@ -22,7 +21,7 @@ class MarketingController extends Controller
     {
         return view('marketing.features', [
             'modules' => $modules->all(),
-            'accent' => $this->accent,
+            'accent' => config('payroll.accent'),
         ]);
     }
 
@@ -30,42 +29,29 @@ class MarketingController extends Controller
     {
         return view('marketing.modules', [
             'modules' => $modules->all(),
-            'accent' => $this->accent,
-        ]);
-    }
-
-    public function overtime(): View
-    {
-        return view('marketing.overtime', [
-            'accent' => $this->accent,
-        ]);
-    }
-
-    public function filings(): View
-    {
-        return view('marketing.filings', [
-            'accent' => $this->accent,
+            'accent' => config('payroll.accent'),
         ]);
     }
 
     public function pricing(): View
     {
         return view('marketing.pricing', [
-            'accent' => $this->accent,
+            'accent' => config('payroll.accent'),
         ]);
     }
 
     public function security(): View
     {
         return view('marketing.security', [
-            'accent' => $this->accent,
+            'accent' => config('payroll.accent'),
         ]);
     }
 
     public function demo(): View
     {
         return view('marketing.demo', [
-            'accent' => $this->accent,
+            'accent' => config('payroll.accent'),
+            'demoEmail' => config('payroll.demo.email'),
         ]);
     }
 }

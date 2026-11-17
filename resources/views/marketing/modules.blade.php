@@ -1,30 +1,24 @@
 @extends('layouts.marketing')
 
-@section('title', 'Modules')
-@section('meta_description', 'Toggleable PayComply modules for jurisdictions, overtime, wage classes, filings, alerts, PDF packs, AI assist, and attendance.')
+@section('title', 'Modules — PayComply')
+@section('meta_description', 'Toggle payroll compliance modules on or off: jurisdictions, wage classes, OT rules, filings, alerts, PDF packs, and AI assist.')
 
 @section('content')
-<section class="hero">
-    <div class="eyebrow">Module switchboard</div>
-    <h1>Run only the compliance surface your business needs.</h1>
-    <p>Core modules stay protected; optional AI, scraper, and attendance bridges stay off until you enable them.</p>
-</section>
-<section class="section">
-    <table>
-        <thead>
-            <tr><th>Module</th><th>Category</th><th>Status</th><th>Hrs/wk</th><th>Core</th></tr>
-        </thead>
-        <tbody>
+<h1 class="section-title">Toggleable modules</h1>
+<p style="color:var(--muted);">Enable only the compliance domains your payroll operation needs. Disabled modules hide from Filament navigation and refuse resource access.</p>
+<table>
+    <thead>
+        <tr><th>Module</th><th>Category</th><th>Status</th><th>Hours saved / week</th></tr>
+    </thead>
+    <tbody>
         @foreach($modules as $module)
             <tr>
-                <td><strong>{{ $module['name'] }}</strong><br><span style="color:var(--muted);font-size:.85rem;">{{ $module['description'] }}</span></td>
-                <td>{{ $module['category'] }}</td>
-                <td><span class="pill {{ $module['enabled'] ? '' : 'off' }}">{{ $module['enabled'] ? 'Enabled' : 'Disabled' }}</span></td>
-                <td>{{ $module['hours_saved_weekly'] }}</td>
-                <td>{{ !empty($module['core']) ? 'Yes' : 'No' }}</td>
+                <td><strong>{{ $module['name'] ?? $module['key'] }}</strong><br><span style="color:var(--muted);font-size:.9rem;">{{ $module['description'] ?? '' }}</span></td>
+                <td>{{ $module['category'] ?? '—' }}</td>
+                <td>{{ ($module['enabled'] ?? false) ? 'ON' : 'OFF' }}</td>
+                <td>{{ $module['hours_saved_weekly'] ?? 0 }}</td>
             </tr>
         @endforeach
-        </tbody>
-    </table>
-</section>
+    </tbody>
+</table>
 @endsection

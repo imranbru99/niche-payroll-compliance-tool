@@ -24,8 +24,8 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'role' => UserRole::Staff,
-            'phone' => fake()->phoneNumber(),
-            'organization_name' => fake()->company(),
+            'phone' => fake()->optional()->phoneNumber(),
+            'organization_name' => 'PayComply Demo Co',
             'job_title' => 'Payroll Specialist',
             'is_active' => true,
         ];
